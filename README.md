@@ -1,5 +1,7 @@
 # Require Expressions for .Net
 
+![build](https://github.com/andrej-dyck/template-gradle-kotlin/actions/workflows/gradle-ci.yml/badge.svg?branch=main)
+
 A small library that provides _pre-condition_ checks as an extension method on types. 
 This allows the client code to check a condition on arguments and use the value directly if no exception is thrown.
 
