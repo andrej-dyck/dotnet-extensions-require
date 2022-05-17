@@ -39,4 +39,12 @@ Probably not as I want to keep this library small and focused. But you are very 
 
 ## Build & Test
 
-TBD
+**Build project**
+```shell
+dotnet build 
+```
+
+**Run unit tests**
+```shell
+dotnet test
+```

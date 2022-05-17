@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{5829FB54-25FB-4632-A997-7DE17A826183}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		README.md = README.md
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.Extensions.Require", "DotNet.Extensions.Require\DotNet.Extensions.Require.csproj", "{202169A6-9AD5-4665-BC2F-DBA243C0E37F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.Extensions.Require.Test", "DotNet.Extensions.Require.Test\DotNet.Extensions.Require.Test.csproj", "{EA5735FB-F955-4D07-AA0D-B76FD18906F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{202169A6-9AD5-4665-BC2F-DBA243C0E37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202169A6-9AD5-4665-BC2F-DBA243C0E37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202169A6-9AD5-4665-BC2F-DBA243C0E37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202169A6-9AD5-4665-BC2F-DBA243C0E37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5735FB-F955-4D07-AA0D-B76FD18906F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5735FB-F955-4D07-AA0D-B76FD18906F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5735FB-F955-4D07-AA0D-B76FD18906F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5735FB-F955-4D07-AA0D-B76FD18906F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
