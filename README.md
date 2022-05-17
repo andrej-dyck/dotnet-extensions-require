@@ -1,0 +1,1 @@
+# dotnet-type-extensions-require
