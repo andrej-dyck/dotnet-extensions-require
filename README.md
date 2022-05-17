@@ -19,7 +19,13 @@ TBD
 
 ## Examples
 
-TBD
+**Basic `Require` Function**
+```csharp
+var requestedSeats = seats.Require(
+    condition: seats > 0,
+    expectation: "expected: seats > 0"
+);
+```
 
 ## Q&A
 
