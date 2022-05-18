@@ -1,0 +1,25 @@
+name: Publish NuGet Package
+
+on:
+  release:
+      types: [published]
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: |
+            6.0.x
+            5.0.x
+    - name: Build Release
+      run: dotnet build -c Release
+    - name: Generate NuGet Package
+      run: dotnet pack -c Release -o out
+    - name: Publish
+      run: dotnet nuget push out/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate --no-symbols

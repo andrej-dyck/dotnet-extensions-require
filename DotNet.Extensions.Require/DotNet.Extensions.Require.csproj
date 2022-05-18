@@ -1,2 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Require-Expressions</PackageId>
+        <Description>☑ Require Expressions - A precondition checks library for .Net 📦 via extensions methods on types.</Description>
+        <PackageTags>preconditions;require;guard;code-contracts;argument-checks;extension-methods</PackageTags>
+
+        <Version>1.0.1-alpha</Version>
+        <Authors>Andrej Dyck</Authors>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+        <RepositoryUrl>https://github.com/andrej-dyck/dotnet-extensions-require</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\LICENSE" Pack="true" PackagePath="" />
+        <None Include="..\README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+
 </Project>
