@@ -1,6 +1,7 @@
 # Require Expressions for .Net
 
 ![build](https://github.com/andrej-dyck/template-gradle-kotlin/actions/workflows/gradle-ci.yml/badge.svg?branch=main)
+[![codecov](https://codecov.io/gh/andrej-dyck/dotnet-extensions-require/branch/main/graph/badge.svg?token=9IL6K5CX37)](https://codecov.io/gh/andrej-dyck/dotnet-extensions-require)
 [![NuGet](https://badgen.net/nuget/v/Require-Expressions)](https://www.nuget.org/packages/Require-Expressions/)
 
 A small library that provides _pre-condition_ checks as an extension method on types. 
@@ -8,10 +9,10 @@ This allows the client code to check a condition on arguments and use the value 
 
 ```csharp
 Reservation Request(DateTime now, DateTime reservationDate, int seats) => 
-  new Reservation(
-    reservationDate.Require(d => d > now, d => $"Reservation date {d} must be in the future"),
-    seats.Require(seats > 0, () => "Expected positive number of seats")
-  );
+    new Reservation(
+        reservationDate.Require(d => d > now, d => $"Reservation date {d} must be in the future"),
+        seats.Require(seats > 0, () => "Expected positive number of seats")
+    );
 ```
 
 ## NuGet Package
@@ -22,11 +23,37 @@ dotnet add package Require-Expressions
 
 ## Examples
 
-**Basic `Require` Function**
+**Basic `Require` function**
 ```csharp
 var requestedSeats = seats.Require(
     condition: seats > 0,
     expectation: "expected: seats > 0"
+);
+```
+
+**`Require` functions with lazily constructed expectation messages**
+```csharp
+var requestedSeats = seats.Require(
+    condition: seats > 0,
+    expectation: () => "expected: seats > 0"
+);
+
+var requestedDate = reservationDate.Require(
+    condition: reservationDate > now,
+    expectation: d => $"Reservation date {d} must be in the future"
+);
+```
+
+**`Require` functions with predicate for convenience**
+```csharp
+var requestedSeats = seats.Require(
+    condition: s => s > 0,
+    expectation: "expected: seats > 0"
+);
+
+var requestedDate = reservationDate.Require(
+    requirement: d => d > now,
+    expectation: d => $"Reservation date {d} must be in the future"
 );
 ```
 
