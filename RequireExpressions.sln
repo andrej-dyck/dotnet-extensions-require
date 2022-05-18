@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{5829FB54-25FB-4632-A997-7DE17A826183}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		README.md = README.md
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\publish.yml = .github\workflows\publish.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.Extensions.Require", "DotNet.Extensions.Require\DotNet.Extensions.Require.csproj", "{202169A6-9AD5-4665-BC2F-DBA243C0E37F}"
