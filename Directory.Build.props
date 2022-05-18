@@ -9,6 +9,7 @@
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <AnalysisLevelNaming>latest-None</AnalysisLevelNaming>
 
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     </PropertyGroup>
 
