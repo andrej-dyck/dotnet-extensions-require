@@ -20,7 +20,7 @@ public abstract class PreconditionsTests
         );
 
     [Test]
-    public void Require_Returns_TheValueOnWhichItIsCalled_WhenConditionIsTrue() =>
+    public void Require_ReturnsTheValueOnWhichItIsCalled_WhenConditionIsTrue() =>
         Assert.AreEqual(
             expected: 1,
             actual: Require(subject: 1, condition: true)
@@ -91,7 +91,7 @@ public sealed class RequireWithPredicateAndLazyMessage : RequireWithPredicate
         subject.Require(requirement, expectation: () => expectation);
 
     [Test]
-    public void Require_DoesNotCreateExpectationMessage_WhenRequirementYieldsTrue() =>
+    public void Require_DoesNotCreateExpectationMessage_WhenRequirementIsSatisfied() =>
         Assert.DoesNotThrow(
             () => 1.Require(requirement: _ => true, () => throw new NUnitException("must not be called"))
         );
@@ -109,7 +109,7 @@ public sealed class RequireWithPredicateAndLazilyConstructedMessage : RequireWit
         )?.WithMessage("message with 1");
 
     [Test]
-    public void Require_DoesNotBuildExpectationMessage_WhenConditionIsTrue() =>
+    public void Require_DoesNotBuildExpectationMessage_WhenRequirementIsSatisfied() =>
         Assert.DoesNotThrow(
             () => 1.Require(requirement: _ => true, value => throw new NUnitException($"must not be called for {value}"))
         );

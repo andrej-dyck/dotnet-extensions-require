@@ -21,17 +21,17 @@ Reservation Request(DateTime now, DateTime reservationDate, int seats) =>
 dotnet add package Require-Expressions
 ```
 
-## Examples
+## Examples for `Require`
 
-**Basic `Require` function**
+Basic `Require` function
 ```csharp
 var requestedSeats = seats.Require(
     condition: seats > 0,
     expectation: "expected: seats > 0"
-);
+); // throws ArgumentException with expectation as message when condition is not met
 ```
 
-**`Require` functions with lazily constructed expectation messages**
+`Require` functions with lazily constructed expectation messages
 ```csharp
 var requestedSeats = seats.Require(
     condition: seats > 0,
@@ -44,7 +44,7 @@ var requestedDate = reservationDate.Require(
 );
 ```
 
-**`Require` functions with predicate for convenience**
+`Require` functions with predicate for convenience
 ```csharp
 var requestedSeats = seats.Require(
     condition: s => s > 0,
@@ -55,6 +55,23 @@ var requestedDate = reservationDate.Require(
     requirement: d => d > now,
     expectation: d => $"Reservation date {d} must be in the future"
 );
+```
+
+## Examples for `Check`
+
+For checks other than on arguments, the `Check` function can be used
+```csharp
+var reservationRequest = JsonSerializer.Deserialize<Reservation>(request)
+    .Check(requirement: r => r.Seats > 0, expectation: "expected: seats > 0")
+    .Check(r => r.Date > now, r => $"Reservation date {r.Date} must be in the future")
+    // throws CheckFailed with expectation as message when requirement is not satisfied
+```
+
+With `Check`, custom exceptions can be constructed
+```csharp
+var reservationRequest = JsonSerializer.Deserialize<Reservation>(request)
+    .Check(r => r.Seats > 0, exception: () => new SeatsMustBePositive())
+    .Check(r => r.Date > now, exception: r => new MustBeFutureDateReservateion(r.Date))
 ```
 
 ## Q&A
