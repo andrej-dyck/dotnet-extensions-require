@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Require-Expressions</PackageId>
-        <Description>☑ Require Expressions - A precondition checks library for .Net 📦 via extensions methods on types.</Description>
+        <Description>☑ Require Expressions - A pre-condition checks library 📦 for .Net via extensions methods on types.</Description>
         <PackageTags>preconditions;require;guard;code-contracts;argument-checks;extension-methods</PackageTags>
 
         <Version>1.0.0</Version>
