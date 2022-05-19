@@ -4,7 +4,3 @@ end_of_line = crlf
 insert_final_newline = true
 indent_style = space
 indent_size = 4
-
-[*.cs]
-dotnet_diagnostic.CA1826.severity = none # Use property instead of Linq Enumerable method
-dotnet_diagnostic.CA1848.severity = none # Use the LoggerMessage delegates
