@@ -32,6 +32,12 @@ public sealed class BasicRequire : PreconditionsTests
 {
     protected override T Require<T>(T subject, bool condition, string expectation = "") =>
         subject.Require(condition, expectation);
+
+    [Test]
+    public void Require_UsesArgumentExpressionAsExpectation_WhenNoMessageIsGiven() =>
+        Assert.Throws<ArgumentException>(
+            () => 1.Require(condition: 1 < 0)
+        )?.WithMessage("expected: 1 < 0");
 }
 
 public sealed class RequireWithLazyMessage : PreconditionsTests
@@ -83,6 +89,12 @@ public sealed class RequireWithPredicateAndConstantMessage : RequireWithPredicat
 {
     protected override T Require<T>(T subject, Predicate<T> requirement, string expectation = "") =>
         subject.Require(requirement, expectation);
+
+    [Test]
+    public void Require_UsesArgumentExpression_WhenNoExpectationMessageIsGiven() =>
+        Assert.Throws<ArgumentException>(
+            () => 1.Require(requirement: n => n < 0)
+        )?.WithMessage("expected: n => n < 0");
 }
 
 public sealed class RequireWithPredicateAndLazyMessage : RequireWithPredicate
@@ -111,6 +123,8 @@ public sealed class RequireWithPredicateAndLazilyConstructedMessage : RequireWit
     [Test]
     public void Require_DoesNotBuildExpectationMessage_WhenRequirementIsSatisfied() =>
         Assert.DoesNotThrow(
-            () => 1.Require(requirement: _ => true, value => throw new NUnitException($"must not be called for {value}"))
+            () => 1.Require(
+                requirement: _ => true,
+                value => throw new NUnitException($"must not be called for {value}"))
         );
 }
