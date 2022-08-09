@@ -12,6 +12,12 @@ public sealed class ChecksTests
         )?.WithMessage("message");
 
     [Test]
+    public void Check_UsesArgumentExpressionAsExpectation_WhenNoMessageIsGiven() =>
+        Assert.Throws<CheckFailed>(
+            () => 1.Check(v => v != 1)
+        )?.WithMessage("expected: v => v != 1");
+
+    [Test]
     public void Check_DoesNotThrow_WhenRequirementIsSatisfied() =>
         Assert.DoesNotThrow(
             () => 1.Check(v => v == 1, expectation: string.Empty)
